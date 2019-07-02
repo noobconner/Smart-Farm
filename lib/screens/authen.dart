@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
+import 'package:ung_ssru/screens/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -21,7 +22,13 @@ class _AuthenState extends State<Authen> {
         'Sign up',
         style: TextStyle(color: Colors.black),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('you sign up');
+        //create route
+        var registerRoute =
+            MaterialPageRoute(builder: (BuildContext context) => Register());
+        Navigator.of(context).push(registerRoute);
+      },
     );
   }
 
@@ -80,7 +87,7 @@ class _AuthenState extends State<Authen> {
       width: mySize,
       height: mySize,
       child: Image.asset(
-        'images/porn.png',
+        'images/logo.png',
         fit: BoxFit.contain,
       ),
     );
@@ -99,9 +106,10 @@ class _AuthenState extends State<Authen> {
       resizeToAvoidBottomPadding: false,
       body: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.orange[500],Colors.black,],
-                begin: Alignment.topLeft)),
+            gradient: LinearGradient(colors: [
+          Colors.orange[500],
+          Colors.black,
+        ], begin: Alignment.topLeft)),
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment.topCenter,
         child: Column(
