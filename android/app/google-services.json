@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "766833939692",
+    "firebase_url": "https://my-project-1475409994886.firebaseio.com",
+    "project_id": "my-project-1475409994886",
+    "storage_bucket": "my-project-1475409994886.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766833939692:android:b8e55be0337af70d",
+        "android_client_info": {
+          "package_name": "ssru.cep.autoplant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766833939692-jvaku8hefg3gpih2gp7oslbgvkk01tbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDazvb5AjPeqHmRnzcTUobJuWm9m0rZzdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766833939692-jvaku8hefg3gpih2gp7oslbgvkk01tbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

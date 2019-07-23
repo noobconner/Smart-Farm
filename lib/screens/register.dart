@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 
 class Register extends StatefulWidget {
   @override
@@ -74,7 +73,7 @@ class _RegisterState extends State<Register> {
 
   Widget uploadButton() {
     return IconButton(
-      icon: Icon(Icons.cloud_upload),
+      icon: Icon(Icons.send),
       onPressed: () {
         print('upload');
         if (formkey.currentState.validate()) {
