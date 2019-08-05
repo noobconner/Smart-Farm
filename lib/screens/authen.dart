@@ -68,8 +68,8 @@ class _AuthenState extends State<Authen> {
         ),
         onPressed: () {
           formKey.currentState.save();
-          moveToService();
-          // checkAuthan();
+          //moveToService();
+          checkAuthan();
         });
   }
 
@@ -170,7 +170,7 @@ class _AuthenState extends State<Authen> {
       key: scaffoldKey,
       appBar: AppBar(
         title: Text(
-          'Auto Pot',
+          'Auto Plot',
           style: TextStyle(color: Colors.white),
         ),
       ),
