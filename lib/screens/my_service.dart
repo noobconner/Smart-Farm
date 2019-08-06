@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ung_ssru/screens/my_map.dart';
+import 'package:ung_ssru/screens/qrcode_reader.dart';
 import 'package:ung_ssru/screens/show_info.dart';
 import 'package:ung_ssru/screens/show_product.dart';
 
@@ -18,6 +19,26 @@ class _MyServiceState extends State<MyService> {
   Widget myProduct = ShowProduct();
 
 //Method
+
+  Widget menuQRCode() {
+    return ListTile(
+      leading: Icon(
+        Icons.android,
+        size: 36.0,
+        color: Colors.blueGrey,
+      ),
+      title: Text(
+        'QR Code Reader',
+        style: TextStyle(fontSize: 16.0),
+      ),
+      onTap: () {
+        setState(() {
+          myProduct = QRcodeReader();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
 
   Widget myDivider() {
     return Divider(
@@ -110,6 +131,8 @@ class _MyServiceState extends State<MyService> {
           menuMap(),
           myDivider(),
           menuShowInfo(),
+          myDivider(),
+          menuQRCode(),
           myDivider(),
           signOutAnExit()
         ],
