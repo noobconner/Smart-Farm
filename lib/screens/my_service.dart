@@ -179,7 +179,7 @@ class _MyServiceState extends State<MyService> {
             child: Image.asset('images/logo.png'),
           ),
           Text(
-            'Auto plot',
+            'Smart Farm',
             style: TextStyle(color: Colors.green[200], fontSize: 24.0),
           ),
           Text('Login by $nameString')
@@ -192,7 +192,7 @@ class _MyServiceState extends State<MyService> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Service'),
+        title: Text('Home'),
       ),
       body: myProduct,
       drawer: shoowDrawerMenu(),
