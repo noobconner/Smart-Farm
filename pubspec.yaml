@@ -25,12 +25,20 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   firebase_core: ^0.4.0+7
-  firebase_auth: ^0.11.1+11
-  firebase_database: ^3.0.5
+  firebase_auth: ^0.14.0+5
+  firebase_database: ^3.0.7
   google_maps_flutter: ^0.5.19+2
   cloud_firestore: ^0.12.9
   barcode_scan: ^1.0.0
-
+  percent_indicator: ^2.1.1
+  flutter_gauge: ^1.0.8
+  flutter_inner_drawer: "^0.5.4"
+  flutter_staggered_grid_view: ^0.3.0
+  bubbled_navigation_bar: ^0.0.4
+  curved_navigation_bar: ^0.2.1
+  bubble_bottom_bar: ^1.2.0
+  syncfusion_flutter_gauges: ^17.4.43-beta
+  
 
 dev_dependencies:
   flutter_test:
@@ -47,11 +55,23 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/logo.png
     - images/weed.png
+    - images/hum.png
+    - images/tem.png
+    - images/water.png
+    - images/stb.png
+    - images/carrot.png
+    - images/broccoli.png
+    - images/kale.png
+    - images/lettuce.png
+    - images/cauliflower.png
+    - images/farm.jpg
+    - images/farm2.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

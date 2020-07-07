@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ung_ssru/screens/my_service.dart';
+import 'package:ung_ssru/screens/home_page.dart';
+
+import 'menu.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -87,18 +89,43 @@ class _RegisterState extends State<Register> {
     );
   }
 
+  Widget repass() {
+    return TextField(
+      decoration: InputDecoration(
+        labelText: 'Confirm Password :',
+        labelStyle: TextStyle(color: Colors.green),
+        helperText: 'Confirm Password',
+        helperStyle: TextStyle(color: Colors.green),
+        icon: Icon(
+          Icons.lock,
+          size: 36.0,
+          color: Colors.greenAccent,
+        ),
+      ),
+    );
+  }
+
   Widget uploadButton() {
-    return IconButton(
-      icon: Icon(Icons.cloud_upload),
-      onPressed: () {
-        print('Upload');
-        if (formKey.currentState.validate()) {
-          formKey.currentState.save();
-          print(
-              'Name = $nameString, Email = $emailString, Pass = $passwordString');
-          register();
-        }
-      },
+    return Container(width:80.0 ,height: 5.0,padding: EdgeInsets.all(8.0),
+      child: RaisedButton(
+        color: Colors.white70,
+        shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(25.0),
+            ),
+        child: Text(
+          'Done',
+          style: TextStyle(color: Colors.black,fontSize: 12.0),
+        ),
+        onPressed: () {
+          print('Upload');
+          if (formKey.currentState.validate()) {
+            formKey.currentState.save();
+            print(
+                'Name = $nameString, Email = $emailString, Pass = $passwordString');
+            register();
+          }
+        },
+      ),
     );
   }
 
@@ -125,7 +152,8 @@ class _RegisterState extends State<Register> {
 
       var serviceRoute =
           MaterialPageRoute(builder: (BuildContext context) => MyService());
-          Navigator.of(context).pushAndRemoveUntil(serviceRoute, (Route<dynamic> route) => false);
+      Navigator.of(context)
+          .pushAndRemoveUntil(serviceRoute, (Route<dynamic> route) => false);
     });
   }
 
@@ -157,33 +185,24 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        backgroundColor: Colors.green[800],
         title: Text('Register'),
         actions: <Widget>[uploadButton()],
       ),
       body: Form(
         key: formKey,
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('images/bg.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
           alignment: Alignment.topCenter,
           padding: EdgeInsets.only(top: 60.0),
           child: Container(
             padding: EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(255, 255, 255, 0.8),
-            ),
             width: 300.0,
-            height: 300.0,
+            height: 600.0,
             child: Column(
               children: <Widget>[
                 nameText(),
                 emailText(),
                 passwordText(),
+                repass()
               ],
             ),
           ),

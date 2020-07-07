@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ung_ssru/screens/my_service.dart';
+import 'package:ung_ssru/screens/menu.dart';
+
 import 'package:ung_ssru/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'home_page.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -38,16 +41,17 @@ class _AuthenState extends State<Authen> {
 
   Widget mySingBox() {
     return SizedBox(
-      width: 8.0,
+      width: 10.0,
     );
   }
 
   Widget signUpButton() {
     return RaisedButton(
-      color: Colors.yellow[200],
+      color: Colors.green[50],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Text(
         'Sign up',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(color: Colors.black87),
       ),
       onPressed: () {
         print('you sign up');
@@ -61,14 +65,16 @@ class _AuthenState extends State<Authen> {
 
   Widget singInButton() {
     return RaisedButton(
-        color: Colors.black,
+        color: Colors.teal,
+        textColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Text(
           'Sign in',
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () {
           formKey.currentState.save();
-          //moveToService();
+
           checkAuthan();
         });
   }
@@ -88,34 +94,37 @@ class _AuthenState extends State<Authen> {
     });
   }
 
+  Widget myButtonup() {
+    return Container(
+      padding: EdgeInsets.all(5),
+      width: 300.0,
+      height: 60.0,
+      child: signUpButton(),
+    );
+  }
+
   Widget myButton() {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(5),
       margin: EdgeInsets.only(top: 12),
-      width: 200.0,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: singInButton(),
-          ),
-          mySingBox(),
-          Expanded(
-            child: signUpButton(),
-          )
-        ],
-      ),
+      width: 300.0,
+      height: 60.0,
+      child: singInButton(),
     );
   }
 
   Widget passwordText() {
     return Container(
-      width: 220.0,
+      margin: EdgeInsets.only(top: 12),
+      width: 300.0,
       child: TextFormField(
         obscureText: true,
         decoration: InputDecoration(
-          labelText: 'Password :',
-          hintText: 'More 6 Charactor',
-        ),
+            border: OutlineInputBorder(),
+            labelText: 'Password :',
+            hintText: 'More 6 Charactor',
+            prefixIcon: Icon(Icons.lock_outline),
+            labelStyle: TextStyle(fontSize: 15)),
         onSaved: (String value) {
           passwordString = value;
         },
@@ -125,13 +134,16 @@ class _AuthenState extends State<Authen> {
 
   Widget emailText() {
     return Container(
-      width: 220.0,
+      margin: EdgeInsets.only(top: 12),
+      width: 300.0,
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          labelText: 'Email :',
-          hintText: 'you@email.com',
-        ),
+            border: OutlineInputBorder(),
+            labelText: 'Email :',
+            hintText: 'you@email.com',
+            prefixIcon: Icon(Icons.person_outline),
+            labelStyle: TextStyle(fontSize: 15)),
         onSaved: (String value) {
           emailString = value;
         },
@@ -141,13 +153,26 @@ class _AuthenState extends State<Authen> {
 
   Widget showLogo() {
     return Container(
-      width: mySize,
-      height: mySize,
+      width: 250.0,
+      height: 250.0,
       child: Image.asset(
         'images/logo.png',
         fit: BoxFit.contain,
       ),
     );
+  }
+
+  Widget fopass() {
+    return Padding(
+        padding: EdgeInsets.only(top: 12),
+        child: Center(
+            child: Text(
+          'Forgot your password?',
+          style: TextStyle(
+              fontFamily: 'SFUIDisplay',
+              fontSize: 15,
+              fontWeight: FontWeight.bold),
+        )));
   }
 
   void myShowSnackBar(String messageString) {
@@ -170,35 +195,30 @@ class _AuthenState extends State<Authen> {
       key: scaffoldKey,
       appBar: AppBar(
         title: Text(
-          'Auto Plot',
+          'Smart Farm',
           style: TextStyle(color: Colors.white),
         ),
       ),
       resizeToAvoidBottomPadding: false,
       body: Container(
-        color: Colors.green[100],
-        child: Center(
-            child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                        colors: [Colors.yellow[100], Colors.green[200]])),
-                margin: EdgeInsets.all(32),
-                padding: EdgeInsets.all(24),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      showLogo(),
-                      emailText(),
-                      passwordText(),
-                      myButton(),
-                    ],
-                  ),
-                ))),
-      ),
+          color: Colors.green[100],
+          child: Center(
+              child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                showLogo(),
+                emailText(),
+                passwordText(),
+                myButton(),
+                myButtonup(),
+                fopass()
+                //singInButton()
+              ],
+            ),
+          ))),
     );
   }
 }

@@ -11,8 +11,9 @@ class ShowDetail extends StatefulWidget {
 
 class _ShowDetailState extends State<ShowDetail> {
   // ex
+
   ProductModel productModel;
-  String name = '', detail = '', url = '';
+  String name = '', url = '', humidity = '', temperature = '';
 
   // method
   @override
@@ -23,8 +24,10 @@ class _ShowDetailState extends State<ShowDetail> {
     setState(() {
       productModel = widget.productModel;
       name = productModel.name;
-      detail = productModel.detail;
       url = productModel.url;
+      humidity = productModel.humidity;
+      temperature = productModel.temperature;
+
       print('name = $name');
     });
   }
@@ -39,8 +42,40 @@ class _ShowDetailState extends State<ShowDetail> {
     );
   }
 
-  Widget showDetail() {
-    return Text(productModel.detail);
+  Widget showHum() {
+    return Container(
+      padding: EdgeInsets.all(15.0),
+      child: Row(
+        children: <Widget>[
+          Text(
+            'humidity = ',
+            style: TextStyle(fontSize: 30.0),
+          ),
+          Text(
+            productModel.humidity,
+            style: TextStyle(fontSize: 30.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget showTem() {
+    return Container(
+      padding: EdgeInsets.all(15.0),
+      child: Row(
+        children: <Widget>[
+          Text(
+            'Temperature = ',
+            style: TextStyle(fontSize: 30.0),
+          ),
+          Text(
+            productModel.temperature,
+            style: TextStyle(fontSize: 30.0),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget showImage() {
@@ -56,16 +91,20 @@ class _ShowDetailState extends State<ShowDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('แสดงรายละเอียด'),
-        ),
-        body: ListView(
-          padding: EdgeInsets.all(20.0),
+      appBar: AppBar(
+        title: Text('แสดงรายละเอียด'),
+      ),
+      body: Container(
+        child: ListView(
+          padding: EdgeInsets.all(15.0),
           children: <Widget>[
             showName(),
-            showImage(),
-            showDetail(),
+            //showImage(),
+            showHum(),
+            showTem(),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

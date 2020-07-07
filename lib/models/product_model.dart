@@ -1,11 +1,14 @@
+import 'package:firebase_database/firebase_database.dart';
+
 class ProductModel {
 
 
   // Field
-  String name, detail,url;
+  String name,url,humidity,temperature;
 
 
   // Construr
-  ProductModel(this.name,this.detail,this.url);
-  
+  ProductModel(this.name,this.url,this.humidity,this.temperature);
+
+ 
 }

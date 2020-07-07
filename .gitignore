@@ -22,7 +22,7 @@
 **/doc/api/
 .dart_tool/
 .flutter-plugins
-.packages
+ckages
 .pub-cache/
 .pub/
 /build/
